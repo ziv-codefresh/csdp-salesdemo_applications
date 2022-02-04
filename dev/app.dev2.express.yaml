@@ -2,22 +2,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: express-dev
+  name: express-dev2
   labels:
     app: express
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: express-microservice  # required field - set to your CF Runtume namespace
-    name: in-cluster
+    namespace: dev2
+    name: dev2
   project: express
   source:
     path: ./base/express-microservice  # Directory that contains the child apps
     repoURL: https://github.com/codefresh-contrib/csdp-salesdemo_applications.git
     targetRevision: main
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
       prune: true
