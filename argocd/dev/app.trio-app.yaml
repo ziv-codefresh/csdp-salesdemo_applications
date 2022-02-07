@@ -1,23 +1,23 @@
 # Parent Argo CD app (grouping) for the flaskr apps
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: express-dev
-  labels:
-    app: express
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  destination:
-    namespace: express-microservice  # required field - set to your CF Runtume namespace
-    name: in-cluster
-  project: express
-  source:
-    path: ./helm/trio-app/dev/  # Directory that contains the child apps
-    repoURL: https://github.com/codefresh-contrib/csdp-salesdemo_applications.git
-    targetRevision: main
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      prune: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: trio-dev
+#   labels:
+#     app: trio
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   destination:
+#     namespace: trio-app  # required field - set to your CF Runtume namespace
+#     name: in-cluster
+#   project: trio
+#   source:
+#     path: ./helm/trio-app/dev/  # Directory that contains the child apps
+#     repoURL: https://github.com/codefresh-contrib/csdp-salesdemo_applications.git
+#     targetRevision: main
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#     automated:
+#       prune: true
