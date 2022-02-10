@@ -5,11 +5,11 @@ buslog:
 ctrlr:
   image:
     repository: quay.io/codefresh_sa/ctrlr
-    tag: 7abe01c
+    tag: 23cecb6
 flask-ui:
   image:
     repository: quay.io/codefresh_sa/flask-ui
-    tag: 310ce88
+    tag: 4d1defd
 
     # tag: 13b7cb2
     # tag: 696b07f
