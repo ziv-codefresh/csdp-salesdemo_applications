@@ -7,4 +7,4 @@ resources:
 namespace: express
 images:
 - name: quay.io/codefresh_sa/express-microservice
-  newTag: d57ce13
+  newTag: 3ce9e76
