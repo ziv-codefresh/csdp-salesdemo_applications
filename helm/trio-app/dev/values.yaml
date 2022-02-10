@@ -1,7 +1,7 @@
 buslog:
   image:
     repository: quay.io/codefresh_sa/buslog
-    tag: 13b7cb2
+    tag: 169ade7
 ctrlr:
   image:
     repository: quay.io/codefresh_sa/ctrlr
