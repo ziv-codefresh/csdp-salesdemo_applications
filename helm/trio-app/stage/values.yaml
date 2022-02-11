@@ -1,11 +1,11 @@
 buslog:
   image:
     repository: quay.io/codefresh_sa/buslog
-    tag: 169ade7
+    tag: e5f1357
 ctrlr:
   image:
     repository: quay.io/codefresh_sa/ctrlr
-    tag: 23cecb6
+    tag: 6b201de
 flask-ui:
   image:
     repository: quay.io/codefresh_sa/flask-ui
