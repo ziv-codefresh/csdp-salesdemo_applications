@@ -9,4 +9,4 @@ images:
 - name: quay.io/codefresh_sa/buslog
   newTag: 169ade7
 - name: quay.io/codefresh_sa/express-microservice
-  newTag: 97b986d
+  newTag: 44a3d4a
