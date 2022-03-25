@@ -2,17 +2,17 @@ buslog:
   replicaCount: 2
   image:
     repository: quay.io/codefresh_sa/buslog
-    tag: "3cb90f1"
+    tag: "bcc845f"
 ctrlr:
   replicaCount: 2
   image:
     repository: quay.io/codefresh_sa/ctrlr
-    tag: "84f4603"
+    tag: "f15324b"
 flask-ui:
   replicaCount: 3
   image:
     repository: quay.io/codefresh_sa/flask-ui
-    tag: "af06fc9"
+    tag: "f166681"
 
 # tag: 13b7cb2
 # tag: 696b07f
