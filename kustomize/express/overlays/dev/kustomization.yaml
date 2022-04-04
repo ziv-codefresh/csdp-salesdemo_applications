@@ -4,9 +4,8 @@ kind: Kustomization
 resources:
 - ./namespace.yaml
 - ../../base
-namespace: express
+#namespace: express
+namespace: csdp-salesdemo-dev
 images:
-- name: quay.io/codefresh_sa/buslog
-  newTag: 169ade7
 - name: quay.io/codefresh_sa/express-microservice
   newTag: 33b9ecd
