@@ -15,8 +15,8 @@ spec:
     path: ./kustomize/express/overlays/dev
     repoURL: https://github.com/codefresh-contrib/csdp-salesdemo_applications.git
     targetRevision: main
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
+  # syncPolicy:
+  #   syncOptions:
+  #     - CreateNamespace=true
     # automated:
     #   prune: true
