@@ -1,25 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: grafana
   labels:
     app: monitoring
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: prometheus
+    namespace: grafana
     name: in-cluster
   project: monitoring
   source:
-    path: ./kustomize/prometheus/overlays/prod-east
+    path: ./kustomize/grafana/overlays/prod-east
     repoURL: https://github.com/codefresh-contrib/csdp-salesdemo_applications.git
     targetRevision: main
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      # https://github.com/argoproj/argo-cd/issues/2730
-      - Replace=true
     automated:
       prune: true
