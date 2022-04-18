@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: workflow-controller-metrics
+  namespace: csdp-salesdemo-prod-east
+spec:
+  endpoints:
+    - port: metrics
+  namespaceSelector:
+    matchNames:
+      - csdp-salesdemo-prod-east
+  selector:
+    matchLabels:
+      app: workflow-controller
