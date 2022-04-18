@@ -16,4 +16,5 @@ spec:
             name: grafana
             port:
               number: 3000
+        path: /grafana
         pathType: ImplementationSpecific
