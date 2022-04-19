@@ -4,7 +4,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   creationTimestamp: null
-  name: csdp-salesdemo-dev-grafana-ingress
+  name: grafana-ingress
   namespace: monitoring
 spec:
   ingressClassName: nginx

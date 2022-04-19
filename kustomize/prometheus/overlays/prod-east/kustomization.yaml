@@ -5,4 +5,4 @@ resources:
 - serviceAccount.yaml
 - ../../base
 - serviceMonitor.yaml
-- ingress.yaml
+
