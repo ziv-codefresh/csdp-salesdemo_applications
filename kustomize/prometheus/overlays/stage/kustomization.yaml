@@ -16,4 +16,4 @@ patches:
   patch: |-
     - op: replace
       path: /data/auth
-      value: cHJvbWV0aGV1cy1zdGFnZTokYXByMSRPWmpBRlhIciRlanNQWUFjRTEydFBLb3hzS09TQS8vCg==
+      value: YWRtaW46JGFwcjEkTE9aUFVYRmIkQmVZTnFKNEZqQnI0VnAvc2FXdVVwLgo=

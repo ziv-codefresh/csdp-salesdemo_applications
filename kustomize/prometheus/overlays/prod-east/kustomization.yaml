@@ -7,7 +7,7 @@ resources:
 - serviceMonitor.yaml
 
 patches:
-# user: prometheus-prod-east
+# user: admin
 - target:
     version: v1
     kind: Secret
@@ -15,4 +15,4 @@ patches:
   patch: |-
     - op: replace
       path: /data/auth
-      value: cHJvbWV0aGV1cy1wcm9kLWVhc3Q6JGFwcjEkTzhjMHZRRFUkT0I5M3ovbUtwUS4vYVNyUmVnYjRvLgo=
+      value: YWRtaW46JGFwcjEkUnRwa3MuSy4kOGpwMVRic3NvYUFuZU9xejB4Nzd1Lgo=
