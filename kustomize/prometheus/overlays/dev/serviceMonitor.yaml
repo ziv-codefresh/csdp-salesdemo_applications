@@ -54,3 +54,17 @@ spec:
       app.kubernetes.io/name: argocd-repo-server
   endpoints:
   - port: metrics
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: argo-rollouts-metrics
+  namespace: csdp-salesdemo-dev
+  labels:
+    release: prometheus-operator
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: argo-rollouts-metrics
+  podMetricsEndpoints:
+  - port: metrics
