@@ -20,6 +20,6 @@ spec:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
       # https://github.com/argoproj/argo-cd/issues/2730
-      - Replace=true
+      #- Replace=true
     automated:
       prune: true
