@@ -58,7 +58,7 @@ patches:
   patch: |-
     - op: add
       path: /spec/externalUrl
-      value: http://prometheus-main.monitoring.svc.cluster.local/prometheus
+      value: http://prometheus-main.monitoring.svc.cluster.local:9090/prometheus
 
 # patchesStrategicMerge:
 # - |-
