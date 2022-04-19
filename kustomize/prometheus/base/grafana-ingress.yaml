@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-  creationTimestamp: null
   name: grafana-ingress
   namespace: monitoring
 spec:
