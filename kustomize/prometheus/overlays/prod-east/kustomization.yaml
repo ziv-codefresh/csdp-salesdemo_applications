@@ -6,3 +6,13 @@ resources:
 - ../../base
 - serviceMonitor.yaml
 
+patches:
+# user: prometheus-prod-east
+- target:
+    version: v1
+    kind: Secret
+    name: basic-auth
+  patch: |-
+    - op: replace
+      path: /data/auth
+      value: cHJvbWV0aGV1cy1wcm9kLWVhc3Q6JGFwcjEkTzhjMHZRRFUkT0I5M3ovbUtwUS4vYVNyUmVnYjRvLgo=

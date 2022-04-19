@@ -5,3 +5,15 @@ resources:
 - serviceAccount.yaml
 - ../../base
 - serviceMonitor.yaml
+
+
+patches:
+# user: prometheus-stage
+- target:
+    version: v1
+    kind: Secret
+    name: basic-auth
+  patch: |-
+    - op: replace
+      path: /data/auth
+      value: cHJvbWV0aGV1cy1zdGFnZTokYXByMSRPWmpBRlhIciRlanNQWUFjRTEydFBLb3hzS09TQS8vCg==
