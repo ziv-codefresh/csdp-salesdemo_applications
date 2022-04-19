@@ -5,8 +5,8 @@ resources:
 - grafana-pvc.yaml
 - grafana-svc.yaml
 - grafana-ingress.yaml
-- preometheus-basic-auth.yaml
-- preometheus-ingress.yaml
+- prometheus-basic-auth.yaml
+- prometheus-ingress.yaml
 - github.com/prometheus-operator/kube-prometheus?ref=v0.10.0
 
 patches:
