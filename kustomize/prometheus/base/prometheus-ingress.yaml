@@ -16,6 +16,7 @@ spec:
       - backend:
           service:
             name: prometheus-k8s
-            port: 'web'
+            port:
+              number: 9090
         path: /prometheus(/|$)(.*)
         pathType: ImplementationSpecific
