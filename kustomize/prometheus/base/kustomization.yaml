@@ -50,15 +50,18 @@ patches:
         name: grafana-storage
         persistentVolumeClaim:
           claimName: grafana-pvc
-# - target:
-#     group: monitoring.coreos.com
-#     version: v1
-#     kind: Prometheus
-#     name: k8s
-#   patch: |-
-#     - op: add
-#       path: /spec/externalUrl
-#       value: http://prometheus-main.monitoring.svc.cluster.local:9090/prometheus
+- target:
+    group: monitoring.coreos.com
+    version: v1
+    kind: Prometheus
+    name: k8s
+  patch: |-
+    - op: add
+      path: /spec/externalUrl
+      value: http://localhost:9090/prometheus
+    - op: add
+      path: /spec/routePrefix
+      value: /
 
 # patchesStrategicMerge:
 # - |-
