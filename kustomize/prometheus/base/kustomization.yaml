@@ -6,6 +6,19 @@ resources:
 - grafana-svc.yaml
 #- grafana-pvc.yaml
 
+patches:
+- target:
+    group: apiextensions.k8s.io
+    version: v1
+    kind: CustomResourceDefinition
+    name: prometheuses.monitoring.coreos.com
+  # https://github.com/argoproj/argo-cd/issues/2730
+  # https://github.com/kubernetes-sigs/kustomize/issues/1439#issuecomment-520614831
+  patch: |-
+    - op: add
+      path: /metadata/annotations/argocd.argoproj.io~1sync-options
+      value: Replace=true
+
 # Replace the emptydir volume with a pvc
 # patchesJSON6902:
 # - target:

@@ -19,7 +19,5 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      # https://github.com/argoproj/argo-cd/issues/2730
-      #- Replace=true
     automated:
       prune: true
