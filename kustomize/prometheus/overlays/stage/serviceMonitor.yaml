@@ -66,5 +66,5 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argo-rollouts-metrics
-  podMetricsEndpoints:
+  endpoints:
   - port: metrics
