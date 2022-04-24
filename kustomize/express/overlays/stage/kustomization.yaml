@@ -6,4 +6,4 @@ resources:
 namespace: csdp-salesdemo-stage
 images:
 - name: quay.io/codefresh_sa/express-microservice
-  newTag: 4f8e836
+  newTag: 18a24bc
