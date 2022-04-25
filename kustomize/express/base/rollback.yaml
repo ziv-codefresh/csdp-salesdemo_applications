@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: argo-rollouts.0.0.1
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argo-rollouts.0.0.1
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - get
+      - watch
+      - patch
+  - apiGroups:
+      - ""
+    resources:
+      - pods/log
+    verbs:
+      - get
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+    verbs:
+      - get
+# These (below) are needed for the rollback (haven't tried removing the permissions above)
+  - apiGroups:
+      - "apps"
+    resources:
+      - replicasets
+    verbs:
+      - get
+      - list
+  - apiGroups:
+      - "argoproj.io"
+    resources:
+      - rollouts
+    verbs:
+      - get
+      - list
+      - patch
+      - update
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argo-rollouts.0.0.1
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: argo-rollouts.0.0.1
+subjects:
+  - kind: ServiceAccount
+    name: argo-rollouts.0.0.1
+---
+# Make this job part of the argocd application -- the annotations _should_ tell it when to run
+# https://argo-cd.readthedocs.io/en/stable/user-guide/resource_hooks/
+apiVersion: batch/v1
+kind: Job
+metadata:
+#  name: test-rollout-fail
+  generateName: rollout-failed-
+  annotations:
+    argocd.argoproj.io/hook: SyncFail
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      serviceAccountName: argo-rollouts.0.0.1
+      containers:
+      - name: undo-rollout
+        image: quay.io/argoproj/kubectl-argo-rollouts:master
+        command:
+          - "kubectl-argo-rollouts"
+          - "undo"
+          - "express-microservice"
+      restartPolicy: Never
+  backoffLimit: 2
