@@ -68,7 +68,7 @@ metadata:
   name: express-rollout-fail
 #  generateName: rollout-failed-
   annotations:
-    argocd.argoproj.io/hook: SyncFail
+    argocd.argoproj.io/hook: PostSync
 spec:
   template:
     spec:
@@ -76,9 +76,26 @@ spec:
       containers:
       - name: undo-rollout
         image: quay.io/argoproj/kubectl-argo-rollouts:master
+        env:
+          - name: ARGOCD_APP_NAME
+            value: express-app
+          - env: ARGO_ROLLOUT_NAME
+            value: express-microservice
         command:
-          - "kubectl-argo-rollouts"
-          - "undo"
-          - "express-microservice"
+          - |
+            # Loop until the deployment has completed (Healthy or Degraded)
+            while : ; do
+              STATUS=$(kubectl get apps ${ARGOCD_APP_NAME} -ojsonpath='{.status.health.status}');
+
+              test [ "${STATUS}" == "Healthy" ] && exit 0;
+              test [ "${STATUS}" == "Degraded" ] && kubectl-argo-rollouts undo ${ARGO_ROLLOUT_NAME};
+              sleep 5
+            done
       restartPolicy: Never
   backoffLimit: 2
+# https://argo-cd.readthedocs.io/en/stable/operator-manual/health/#way-1-define-a-custom-health-check-in-argocd-cm-configmap
+# Health statuses
+# Healthy - the resource is healthy
+# Progressing - the resource is not healthy yet but still making progress and might be healthy soon
+# Degraded - the resource is degraded
+# Suspended - the resource is suspended and waiting for some external event to resume (e.g. suspended CronJob or paused Deployment)

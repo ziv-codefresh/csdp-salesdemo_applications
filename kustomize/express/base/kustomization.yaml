@@ -5,4 +5,4 @@ resources:
 - rollout.yaml
 # - deployment.yaml
 - service.yaml
-- rollback.yaml
+#- rollback.yaml
