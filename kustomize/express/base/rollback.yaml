@@ -65,11 +65,10 @@ subjects:
 apiVersion: batch/v1
 kind: Job
 metadata:
-#  name: test-rollout-fail
-  generateName: rollout-failed-
+  name: express-rollout-fail
+#  generateName: rollout-failed-
   annotations:
     argocd.argoproj.io/hook: SyncFail
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
