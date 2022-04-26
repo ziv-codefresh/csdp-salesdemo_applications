@@ -5,7 +5,7 @@ resources:
 - ../../base
 #namespace: express
 namespace: csdp-salesdemo-dev
+  # de092c6 d93e6a0 6e7a4fc ee05d9b
 images:
 - name: quay.io/codefresh_sa/express-microservice
-  # de092c6 d93e6a0 6e7a4fc ee05d9b
-  newTag: d93e6a0
+  newTag: b9663e1
