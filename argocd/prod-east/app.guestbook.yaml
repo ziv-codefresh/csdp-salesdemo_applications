@@ -9,5 +9,5 @@ spec:
     targetRevision: HEAD
     path: kustomize-guestbook/production # Path to folder for kustomization.yaml
   destination:
-    server: in-cluster
+    name: in-cluster
     namespace: guestbook
