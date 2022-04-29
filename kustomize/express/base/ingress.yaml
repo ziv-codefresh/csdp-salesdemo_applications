@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: express-stable-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-targe: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
@@ -23,7 +23,7 @@ kind: Ingress
 metadata:
   name: express-preview-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-targe: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
@@ -36,3 +36,4 @@ spec:
               number: 3000
         path: /express-preview
         pathType: ImplementationSpecific
+
