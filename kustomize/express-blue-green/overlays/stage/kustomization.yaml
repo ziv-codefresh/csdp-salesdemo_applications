@@ -1,0 +1,9 @@
+# kustomize edit set image quay.io/codefresh_sa/express-microservice:test
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+namespace: csdp-salesdemo-stage
+images:
+- name: quay.io/codefresh_sa/express-microservice
+  newTag: d0e25b9
