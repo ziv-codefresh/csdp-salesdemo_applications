@@ -41,6 +41,7 @@ rules:
       - "argoproj.io"
     resources:
       - rollouts
+      - applications
     verbs:
       - get
       - list
@@ -83,14 +84,16 @@ spec:
           - name: ARGO_ROLLOUT_NAME
             value: express-microservice
         command:
+          - /bin/bash
+          - -c
           - |
             # Loop until the deployment has completed (Healthy or Degraded)
             while : ; do
               STATUS=$(kubectl get apps ${ARGOCD_APP_NAME} -ojsonpath='{.status.health.status}');
 
-              test -z "${STATUS}" && exit 1
-              test "${STATUS}" == "Healthy" && exit 0;
-              test "${STATUS}" == "Degraded" && kubectl-argo-rollouts undo ${ARGO_ROLLOUT_NAME};
+              test -z "${STATUS}" && echo "App ${ARGOCD_APP_NAME} not found" && exit 1
+              test "${STATUS}" == "Healthy" && echo "App ${ARGOCD_APP_NAME} healthy" && exit 0;
+              test "${STATUS}" == "Degraded" && echo "Rolling back ${ARGO_ROLLOUT_NAME} (app: ${ARGOCD_APP_NAME})" && kubectl-argo-rollouts undo ${ARGO_ROLLOUT_NAME};
 
               sleep 10
             done
