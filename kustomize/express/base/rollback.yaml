@@ -80,7 +80,7 @@ spec:
           # express-app-bg
           - name: ARGOCD_APP_NAME
             value: express-app
-          - env: ARGO_ROLLOUT_NAME
+          - name: ARGO_ROLLOUT_NAME
             value: express-microservice
         command:
           - |
