@@ -7,4 +7,4 @@ resources:
 namespace: csdp-salesdemo-prod-east
 images:
 - name: quay.io/codefresh_sa/express-microservice
-  newTag: dd4e912
+  newTag: "7469588"
