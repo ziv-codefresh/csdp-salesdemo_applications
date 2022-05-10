@@ -20,12 +20,17 @@ patches:
         blueGreen:
           activeService: express-active-bg
           previewService: express-preview-bg
+          prePromotionAnalysis:
+            templates:
+              - templateName: pass-always
+              - templateName: mixed-tests
     - op: replace
       path: /spec/selector/matchLabels/app
       value: express-microservice-bg
     - op: replace
       path: /spec/template/metadata/labels/app
       value: express-microservice-bg
+
 
 - target:
     group: networking.k8s.io
