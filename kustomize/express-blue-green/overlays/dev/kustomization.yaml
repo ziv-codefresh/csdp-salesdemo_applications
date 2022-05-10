@@ -20,6 +20,10 @@ patches:
         blueGreen:
           activeService: express-active-bg
           previewService: express-preview-bg
+          prePromotionAnalysis:
+            templates:
+              - templateName: pass-always-bg
+              - templateName: mixed-tests-bg
     - op: replace
       path: /spec/selector/matchLabels/app
       value: express-microservice-bg
