@@ -52,4 +52,15 @@ patches:
     - op: replace
       path: /spec/rules/0/http/paths/0/path
       value: /express-preview-bg
-
+- target:
+    group: batch
+    version: v1
+    kind: Job
+    name: express-rollout-fail
+  patch: |
+    - op: replace
+      path: /spec/template/spec/containers/0/env/0/value
+      value: express-app-bg
+    - op: replace
+      path: /spec/template/spec/containers/0/env/1/value
+      value: express-microservice-bg
