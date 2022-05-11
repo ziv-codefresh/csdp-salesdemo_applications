@@ -61,3 +61,12 @@ patches:
     - op: replace
       path: /spec/template/spec/containers/0/env/1/value
       value: express-microservice-bg
+- target:
+    group: batch
+    version: v1
+    kind: Job
+    name: express-sync-fail
+  patch: |
+    - op: replace
+      path: /spec/template/spec/containers/0/env/0/value
+      value: express-microservice-bg

@@ -109,3 +109,27 @@ spec:
 # Progressing - the resource is not healthy yet but still making progress and might be healthy soon
 # Degraded - the resource is degraded
 # Suspended - the resource is suspended and waiting for some external event to resume (e.g. suspended CronJob or paused Deployment)
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: express-sync-fail
+  annotations:
+    argocd.argoproj.io/hook: SyncFail
+spec:
+  template:
+    spec:
+      serviceAccountName: express-rollback
+      containers:
+      - name: undo-rollout
+        image: quay.io/codefresh_sa/kubectl-rollouts:latest
+        env:
+          - name: ARGO_ROLLOUT_NAME
+            value: express-microservice
+        command:
+          - /bin/bash
+          - -c
+          - |
+            echo "Rolling back ${ARGO_ROLLOUT_NAME} (app: ${ARGOCD_APP_NAME})" && kubectl-argo-rollouts undo ${ARGO_ROLLOUT_NAME};
+      restartPolicy: Never
+  backoffLimit: 2
