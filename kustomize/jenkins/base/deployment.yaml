@@ -15,6 +15,9 @@ spec:
       containers:
       - name: jenkins
         image: dustinvanbuskirk/jenkins:lts-dind
+        securityContext:
+          privileged: true
+          runAsUser: 0
         ports:
         - containerPort: 8080
         volumeMounts:
@@ -28,4 +31,3 @@ spec:
       - name: docker-sock-volume
         hostPath:
           path: /var/run/docker.sock
-          type: File
