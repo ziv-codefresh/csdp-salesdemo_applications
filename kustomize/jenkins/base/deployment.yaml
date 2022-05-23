@@ -30,7 +30,7 @@ spec:
       volumes:
       - name: jenkins-vol
         persistentVolumeClaim:
-        claimName: jenkins-pvc
+          claimName: jenkins-pvc
       - name: docker-sock-volume
         hostPath:
           path: /var/run/docker.sock
