@@ -21,13 +21,14 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: jenkins-vol
-          mountPath: /var/jenkins_vol
+        - mountPath: /var/jenkins_home
+          name: jenkins-vol
         - mountPath: /var/run/docker.sock
           name: docker-sock-volume
       volumes:
       - name: jenkins-vol
-        emptyDir: {}
+        persistentVolumeClaim:
+        claimName: jenkins-pvc
       - name: docker-sock-volume
         hostPath:
           path: /var/run/docker.sock
