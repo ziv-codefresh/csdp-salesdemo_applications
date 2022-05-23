@@ -20,6 +20,12 @@ spec:
         volumeMounts:
         - name: jenkins-home
           mountPath: /var/jenkins_home
+        - mountPath: /var/run/docker.sock
+          name: docker-sock-volume
       volumes:
       - name: jenkins-home
         emptyDir: { }
+      - name: docker-sock-volume
+        hostPath:
+          path: /var/run/docker.sock
+          type: File
