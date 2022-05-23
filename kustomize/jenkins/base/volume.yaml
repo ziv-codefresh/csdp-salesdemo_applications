@@ -4,11 +4,10 @@ metadata:
   name: jenkins-pv
   namespace: jenkins
 spec:
-  storageClassName: jenkins-pv
+  storageClassName: ebs-us-east-1a
   accessModes:
   - ReadWriteOnce
   capacity:
     storage: 20Gi
   persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: /data/jenkins-volume/
+  volumeMode: Filesystem
