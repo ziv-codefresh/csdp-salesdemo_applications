@@ -10,5 +10,5 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: ebs-us-east-1b
+  storageClassName: ebs
   volumeMode: Filesystem
