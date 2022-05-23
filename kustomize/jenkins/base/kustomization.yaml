@@ -5,4 +5,4 @@ resources:
 - deployment.yaml
 - service-account.yaml
 - service.yaml
-- volume.yaml
+- persistent-volume-claim.yaml
