@@ -12,6 +12,8 @@ spec:
       labels:
         app: jenkins
     spec:
+      nodeSelector:
+        zone: us-east-1a
       containers:
       - name: jenkins
         image: dustinvanbuskirk/jenkins:lts-dind
