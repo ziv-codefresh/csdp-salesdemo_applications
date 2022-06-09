@@ -19,6 +19,5 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-
-    # automated:
-    #   prune: true
+    automated:
+      prune: true
