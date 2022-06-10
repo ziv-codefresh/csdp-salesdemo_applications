@@ -25,11 +25,11 @@ spec:
   minReadySeconds: 30
   strategy:
     canary:
-      stableService: express-active
-      canaryService: express-preview
-      trafficRouting:
-        nginx:
-          stableIngress: express-stable-ingress
+#       stableService: express-active
+#       canaryService: express-preview
+#       trafficRouting:
+#         nginx:
+#           stableIngress: express-stable-ingress
       analysis:
         templates:
         - templateName: pass-always
