@@ -4,7 +4,7 @@ metadata:
   name: express-microservice
 spec:
   replicas: 4
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 2 // >2 not supported right now
   selector:
     matchLabels:
       app: express-microservice
