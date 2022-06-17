@@ -7,13 +7,12 @@ ctrlr:
   replicaCount: 2
   image:
     repository: quay.io/codefresh_sa/ctrlr
-    tag: "628f6a3"
+    tag: "c566004"
 flask-ui:
   replicaCount: 3
   image:
     repository: quay.io/codefresh_sa/flask-ui
     tag: "5508b10"
-
 # tag: 13b7cb2
 # tag: 696b07f
 # tag: 5c41d13
