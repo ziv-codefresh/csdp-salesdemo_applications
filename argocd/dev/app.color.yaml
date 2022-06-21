@@ -12,7 +12,7 @@ spec:
     name: in-cluster
   project: color
   source:
-    path: ./colors
+    path: ./color
     repoURL: https://github.com/codefresh-contrib/csdp-salesdemo_applications.git
     targetRevision: main
   syncPolicy:
