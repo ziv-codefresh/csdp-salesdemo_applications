@@ -3,6 +3,5 @@ data:
   COLOR1: orange
 kind: ConfigMap
 metadata:
-  creationTimestamp: null
   name: color-config
   namespace: color
