@@ -23,6 +23,9 @@ spec:
         name: color-service
         env:
         - name: COLOR1
-          value: Tomato
+          valueFrom:
+            configMapKeyRef:
+              name: color-config
+              key: COLOR1
         resources: {}
 status: {}
