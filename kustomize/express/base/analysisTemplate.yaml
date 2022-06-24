@@ -36,8 +36,8 @@ spec:
               - name: sleep-fail
                 image: alpine:3.8
                 command: [sh, -c]
-#                args: [ "test $(( RANDOM%2 )) == 0" ]
-                args: [FLIP=$(($(($RANDOM%10))%2)) && exit $FLIP]
+                args: [ "test $(( RANDOM%2 )) == 0" ]
+#                args: [FLIP=$(($(($RANDOM%10))%2)) && exit $FLIP]
               restartPolicy: Never
           backoffLimit: 0
 
