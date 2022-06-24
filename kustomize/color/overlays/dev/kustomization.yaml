@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+namespace: color
+configMapGenerator:
+- behavior: merge
+  name: color-config
+  namespace: color
+  literals:
+  - COLOR1=blue
