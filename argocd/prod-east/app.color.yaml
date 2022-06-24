@@ -12,7 +12,7 @@ spec:
     name: in-cluster
   project: color
   source:
-    path: ./kustomize/color/overlays/dev
+    path: ./kustomize/color/overlays/prod-east
     repoURL: https://github.com/codefresh-contrib/csdp-salesdemo_applications.git
     targetRevision: main
   syncPolicy:
