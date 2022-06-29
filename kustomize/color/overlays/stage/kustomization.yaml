@@ -4,8 +4,7 @@ resources:
 - ../../base
 namespace: color
 configMapGenerator:
-- behavior: merge
-  name: color-config
+- name: color-config
   namespace: color
   literals:
   - COLOR1=yellow
