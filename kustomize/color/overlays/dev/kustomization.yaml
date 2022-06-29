@@ -3,13 +3,9 @@ kind: Kustomization
 resources:
 - ../../base
 namespace: color
-generatorOptions:
-  disableNameSuffixHash: false
 configMapGenerator:
 - behavior: replace
   name: color-config
-  annotations:
-    kustomize.config.k8s.io/needs-hash: "true"
   namespace: color
   literals:
-  - COLOR1=red
+  - COLOR1=blue
