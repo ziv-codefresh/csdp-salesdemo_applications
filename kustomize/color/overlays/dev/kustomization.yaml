@@ -8,6 +8,8 @@ generatorOptions:
 configMapGenerator:
 - behavior: replace
   name: color-config
+  annotations:
+    kustomize.config.k8s.io/needs-hash: "true"
   namespace: color
   literals:
   - COLOR1=red
