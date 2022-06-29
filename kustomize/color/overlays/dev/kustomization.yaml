@@ -7,4 +7,4 @@ configMapGenerator:
 - name: color-config
   namespace: color
   literals:
-  - COLOR1=blue
+  - COLOR1=red
