@@ -8,4 +8,4 @@ namespace: csdp-salesdemo-dev
   # de092c6 d93e6a0 6e7a4fc ee05d9b
 images:
 - name: quay.io/codefresh_sa/express-microservice
-  newTag: b516684
+  newTag: a7b5869
