@@ -14,9 +14,9 @@ spec:
         app: guestbook-sales
     spec:
       containers:
-#        0.1 , 0.2 , 0.3 - missing (might be used for degraded test)
-#        gcr.io/heptio-images/ks-guestbook-demo:0.1
-        - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        #        0.1 , 0.2 , 0.3 - missing (might be used for degraded test)
+        #        gcr.io/heptio-images/ks-guestbook-demo:0.1
+        - image: gcr.io/heptio-images/ks-guestbook-demo:0.0.1
           name: guestbook-sales
           ports:
             - name: http
@@ -34,17 +34,17 @@ spec:
         - pause: {duration: 20s}
         - analysis:
             templates:
-            - templateName: prometheus-analysis
+              - templateName: prometheus-analysis
         - setWeight: 75
         - pause: {duration: 15s}
         - experiment:
             duration: 15s
             templates:
-            - name: canary
-              specRef: canary
+              - name: canary
+                specRef: canary
             # This experiment performs its own analysis by referencing one or more AnalysisTemplates
             # here. The success or failure of these runs will progress or abort the rollout respectively.
             analyses:
-            - name: random-fail-experiment
-              templateName: experiment-analysis
-              requiredForCompletion: true
+              - name: random-fail-experiment
+                templateName: experiment-analysis
+                requiredForCompletion: true
