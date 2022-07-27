@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: zivcodefresh/github-demo:0.0.15
+          image: zivcodefresh/github-demo:0.0.25
           ports:
             - containerPort: 8080
